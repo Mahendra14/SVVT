@@ -78,3 +78,28 @@ describe('Swap Function', () => {
 
   // Add more test cases for swap based on your requirements
 });
+
+
+describe('Heapify Function', () => {
+  test('Heapifies an array correctly', () => {
+    const array = [4, 2, 8, 1, 6];
+    heapify(array, 0);
+    console.log(array);
+    expect(array).toEqual([8, 2, 4, 1, 6 ]);
+  });
+
+  // testing the max heap structure by providing various array inputs
+  test('Handles heapifying an already max heap', () => {
+    const array = [8, 6, 4, 1, 2];
+    heapify(array, 0);
+    expect(array).toEqual([8, 6, 4, 1, 2]);
+  });
+
+  test('Handles heapifying with negative numbers', () => {
+    const array = [4, -2, 8, -1, 6];
+    heapify(array, 0);
+    expect(array).toEqual([8,-2,4,-1,6]);
+  });
+
+  // Add more test cases for heapify based on your requirements
+});

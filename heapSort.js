@@ -1,17 +1,19 @@
 // reference : https://reginafurness.medium.com/implementing-heap-sort-in-javascript-e52683b54935
 
+
+
 function heapSort(array) {
     //handle empty array condition
-    if(array.length === 0){
+    if (array.length === 0) {
         return [];
     }
     // max heapify the array
     for (let i = Math.floor(array.length / 2); i >= 0; i--) {
-        heapify(array, i)
+        heapify(array, i, array.length);
     }
 
     // work backwards, moving max elements to the end of the array
-    for(let i = array.length - 1; i > 0; i--){
+    for (let i = array.length - 1; i > 0; i--) {
         // max element of unsorted section of array is at index 0, swap with element at last index in unsorted array
         swap(array, 0, i);
 
@@ -22,13 +24,16 @@ function heapSort(array) {
     return array;
 }
 
+
+
+
 function heapify(array, index, length = array.length) {
     let largest = index,
         left = index * 2 + 1,
         right = index * 2 + 2;
 
-    // Custom comparison function for accurate comparison of numbers
-    const compare = (a, b) => (a > b ? 1 : a < b ? -1 : 0);
+    // Adjusted comparison function to handle negative numbers
+    const compare = (a, b) => a - b;
 
     // compare element to its left and right child 
     if (left < length && compare(array[left], array[largest]) > 0) {
