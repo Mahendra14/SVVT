@@ -54,6 +54,7 @@ function swap(array, index1, index2) {
     [array[index1], array[index2]] = [array[index2], array[index1]];
 }
 
+
 // console.log(heapSort([4, 2, 8, 1, 6]));
 
-module.exports = heapSort;
+module.exports = {heapSort, swap, heapify};
