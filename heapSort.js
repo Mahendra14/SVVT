@@ -32,10 +32,8 @@ function heapify(array, index, length = array.length) {
         left = index * 2 + 1,
         right = index * 2 + 2;
 
-    // Adjusted comparison function to handle negative numbers
     const compare = (a, b) => a - b;
 
-    // compare element to its left and right child 
     if (left < length && compare(array[left], array[largest]) > 0) {
         largest = left;
     }
@@ -43,11 +41,9 @@ function heapify(array, index, length = array.length) {
         largest = right;
     }
 
-    // if the parent node isn't the largest element, swap it with the largest child
     if (largest !== index) {
         swap(array, index, largest);
 
-        // continue to heapify down the heap
         heapify(array, largest, length);
     }
 
