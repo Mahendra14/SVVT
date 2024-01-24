@@ -1,5 +1,4 @@
-const heapSort = require('../heapSort');
-
+const {swap, heapify, heapSort} = require('../heapSort');
 describe('HeapSort Function', () => {
   test('Sorts an array in ascending order', () => {
     const inputArray = [4, 2, 8, 1, 6];
@@ -56,4 +55,26 @@ describe('HeapSort Function', () => {
     const sortedArray = heapSort(inputArray);
     expect(sortedArray).toEqual([Math.sqrt(2), 2, Math.E, 3, Math.PI]);
   });
+});
+
+describe('Swap Function', () => {
+  test('Swaps elements in an array correctly', () => {
+    const array = [1, 2, 3, 4];
+    swap(array, 1, 3);
+    expect(array).toEqual([1, 4, 3, 2]);
+  });
+
+  test('Handles swapping elements with the same index', () => {
+    const array = [1, 2, 3, 4];
+    swap(array, 1, 1);
+    expect(array).toEqual([1, 2, 3, 4]);
+  });
+
+  test('Swaps elements in an array with negative numbers', () => {
+    const array = [1, -2, 3, -4];
+    swap(array, 0, 3);
+    expect(array).toEqual([-4, -2, 3, 1]);
+  });
+
+  // Add more test cases for swap based on your requirements
 });
